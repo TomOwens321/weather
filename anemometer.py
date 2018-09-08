@@ -1,0 +1,2 @@
+class Anemometer:
+    pass
