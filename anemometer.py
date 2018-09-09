@@ -1,3 +1,3 @@
 class Anemometer:
-    def __init__(self, pinNo):
-        self.pinNo = pinNo
+    def __init__(self):
+        pass

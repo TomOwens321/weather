@@ -5,7 +5,7 @@ from weather.anemometer import Anemometer
 
 class TestAnemometer(unittest.TestCase):
     def test_instantiate(self):
-        anem = Anemometer(2)
+        anem = Anemometer()
         self.assertIsInstance(anem, Anemometer)
 
 if __name__ == '__main__':
