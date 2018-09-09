@@ -1,12 +1,13 @@
+from anemometer import Anemometer
 import unittest
-import sys
-# sys.path.append('../')
-import .anemometer
 
 class TestAnemometer(unittest.TestCase):
     def test_instantiate(self):
         anem = Anemometer()
         self.assertIsInstance(anem, Anemometer)
 
-if __name__ == '__main__':
+def run_tests():
     unittest.main()
+
+if __name__ == '__main__':
+    run_tests()
