@@ -2,9 +2,22 @@ from anemometer import Anemometer
 import unittest
 
 class TestAnemometer(unittest.TestCase):
+    def setUp(self):
+        self.anem = Anemometer()
+
     def test_instantiate(self):
-        anem = Anemometer()
-        self.assertIsInstance(anem, Anemometer)
+        self.assertIsInstance(self.anem, Anemometer)
+
+    def test_direction_text(self):
+        self.assertEqual("ESE", self.anem.direction_text(0.01))
+        self.assertEqual("ESE", self.anem.direction_text(0.23))
+        self.assertEqual("ENE", self.anem.direction_text(0.24))
+        self.assertEqual("ENE", self.anem.direction_text(0.27))
+        self.assertEqual("E  ", self.anem.direction_text(0.28))
+        self.assertEqual("E  ", self.anem.direction_text(0.34))
+
+    def tearDown(self):
+        self.anem = None
 
 def run_tests():
     unittest.main()
