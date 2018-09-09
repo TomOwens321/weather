@@ -8,6 +8,6 @@ node ('jslave') {
     }
 
     stage ('Test') {
-        sh 'for test in `ls tests`; do python3 tests/${test}; done'
+        sh 'for test in `ls */test*`; do python3 ${test}; done'
     }
 }
