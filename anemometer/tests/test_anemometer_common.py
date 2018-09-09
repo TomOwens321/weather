@@ -1,7 +1,7 @@
 import unittest
 import sys
-sys.path.append('../')
-from weather.anemometer import Anemometer
+# sys.path.append('../')
+import .anemometer
 
 class TestAnemometer(unittest.TestCase):
     def test_instantiate(self):
