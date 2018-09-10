@@ -1,12 +1,12 @@
-from anemometer import Anemometer
+from windvane import Windvane
 import unittest
 
-class TestAnemometer(unittest.TestCase):
+class TestWindvane(unittest.TestCase):
     def setUp(self):
-        self.anem = Anemometer()
+        self.anem = Windvane()
 
     def test_instantiate(self):
-        self.assertIsInstance(self.anem, Anemometer)
+        self.assertIsInstance(self.anem, Windvane)
 
     def test_direction_text(self):
         self.assertEqual("ESE", self.anem.direction_text(0.01))

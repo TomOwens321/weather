@@ -1,4 +1,4 @@
-class Anemometer:
+class Windvane:
     def __init__(self):
         pass
     
