@@ -3,21 +3,21 @@ import unittest
 
 class TestWindvane(unittest.TestCase):
     def setUp(self):
-        self.anem = Windvane()
+        self.wind = Windvane()
 
     def test_instantiate(self):
-        self.assertIsInstance(self.anem, Windvane)
+        self.assertIsInstance(self.wind, Windvane)
 
     def test_direction_text(self):
-        self.assertEqual("ESE", self.anem.direction_text(0.01))
-        self.assertEqual("ESE", self.anem.direction_text(0.23))
-        self.assertEqual("ENE", self.anem.direction_text(0.24))
-        self.assertEqual("ENE", self.anem.direction_text(0.27))
-        self.assertEqual("E  ", self.anem.direction_text(0.28))
-        self.assertEqual("E  ", self.anem.direction_text(0.34))
+        self.assertEqual("ESE", self.wind.direction_text(0.01))
+        self.assertEqual("ESE", self.wind.direction_text(0.23))
+        self.assertEqual("ENE", self.wind.direction_text(0.24))
+        self.assertEqual("ENE", self.wind.direction_text(0.27))
+        self.assertEqual("E  ", self.wind.direction_text(0.28))
+        self.assertEqual("E  ", self.wind.direction_text(0.34))
 
     def tearDown(self):
-        self.anem = None
+        self.wind = None
 
 def run_tests():
     unittest.main()
