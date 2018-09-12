@@ -1,9 +1,16 @@
 from windvane.windvane import Windvane
 from Adafruit_BBIO import ADC as ADC
 
+FRVALUE = 10000
+
 class BBWindvane(Windvane):
-    def __init__(self, **kwargs):
-        pass
+    def __init__(self, pinNumber = 'P9_20'):
+        self.anemometerPin = pinNumber
+        self.fixedResistorValue = FRVALUE
 
     def read(self):
         return 1.2
+
+    def set_fixed_resistor_value(self, resistor):
+        self.fixedResistorValue = resistor
+        return self.fixedResistorValue
