@@ -12,7 +12,7 @@ node ('jslave') {
     }
 }
 
-node ('bbone') {
+node ('bbonenil') {
     stage ('Checkout') {
         checkout scm
     }
