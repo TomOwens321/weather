@@ -9,8 +9,8 @@ class BBWindvane(Windvane):
         self.fixedResistorValue = FRVALUE
         self.adc = ADC
 
-    def wind_direction(self, raw_reading):
-        return self.direction_text(self.read() * 3.3)
+    def wind_direction(self, rawReading):
+        return self.direction_text(rawReading * 3.3)
 
     def read(self):
         return self.adc.read(self.wvPin)
