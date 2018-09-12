@@ -34,5 +34,9 @@ class TestBBWindvane(unittest.TestCase):
     def test_read(self, read):
         self.assertEqual(self.bb.read(), 0.5)
 
+    @patch('windvane.bb_windvane.BBWindvane.setup', return_value = True)
+    def test_setup(self, setup):
+        self.assertTrue(self.bb.setup())
+
 if __name__ == '__main__':
     unittest.main()
