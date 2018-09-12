@@ -1,6 +1,6 @@
 import sys
 import unittest
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch
 sys.modules['Adafruit_BBIO'] = MagicMock()
 sys.path.append('../')
 from windvane.bb_windvane import BBWindvane
@@ -29,6 +29,10 @@ class TestBBWindvane(unittest.TestCase):
 
     def test_set_fixed_resistor_value(self):
         self.assertEqual(1234, self.bb.set_fixed_resistor_value(1234))
+
+    @patch('windvane.bb_windvane.BBWindvane.read', return_value = 0.5)
+    def test_read(self, read):
+        self.assertEqual(self.bb.read(), 0.5)
 
 if __name__ == '__main__':
     unittest.main()
