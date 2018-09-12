@@ -12,16 +12,16 @@ node ('jslave') {
     }
 }
 
-node ('bbonenil') {
-    stage ('Checkout') {
-        checkout scm
-    }
+// node ('bbonenil') {
+//     stage ('Checkout') {
+//         checkout scm
+//     }
 
-    stage ('Build') {
-        sh 'echo "No build necessary"'
-    }
+//     stage ('Build') {
+//         sh 'echo "No build necessary"'
+//     }
 
-    stage ('Test') {
-        sh 'scripts/run_tests.sh'
-    }
-}
+//     stage ('Test') {
+//         sh 'scripts/run_tests.sh'
+//     }
+// }
