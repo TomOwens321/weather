@@ -4,13 +4,13 @@ from Adafruit_BBIO import ADC as ADC
 FRVALUE = 10000
 
 class BBWindvane(Windvane):
-    def __init__(self, pinNumber = 'P9_20'):
-        self.anemometerPin = pinNumber
+    def __init__(self, pinNumber = 'P9_36'):
+        self.wvPin = pinNumber
         self.fixedResistorValue = FRVALUE
         self.adc = ADC
 
     def read(self):
-        return self.adc.read(self.anemometerPin)
+        return self.adc.read(self.wvPin)
 
     def setup(self):
         self.adc.setup()

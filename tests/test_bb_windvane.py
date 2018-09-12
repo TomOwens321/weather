@@ -12,12 +12,12 @@ class TestBBWindvane(unittest.TestCase):
 
     def test_initialize_with_params(self):
         self.assertIsInstance(self.bb, BBWindvane)
-        self.assertEqual('NoPin', self.bb.anemometerPin)
+        self.assertEqual('NoPin', self.bb.wvPin)
 
     def test_initialize_without_params(self):
         bb = BBWindvane()
         self.assertIsInstance(bb, BBWindvane)
-        self.assertIsNotNone(bb.anemometerPin)
+        self.assertIsNotNone(bb.wvPin)
 
     def test_read(self):
         self.assertEqual(self.bb.read(), 1.2)
