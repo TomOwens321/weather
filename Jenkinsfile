@@ -1,6 +1,6 @@
 node ('jslave') {
     stage ('Checkout') {
-        checkout scm
+        checkoutWithRetries(2) 
     }
 
     stage ('Build') {
@@ -12,16 +12,13 @@ node ('jslave') {
     }
 }
 
-// node ('bbonenil') {
-//     stage ('Checkout') {
-//         checkout scm
-//     }
-
-//     stage ('Build') {
-//         sh 'echo "No build necessary"'
-//     }
-
-//     stage ('Test') {
-//         sh 'scripts/run_tests.sh'
-//     }
-// }
+def checkoutWithRetries(retryCount) {
+    while (retryCount>0) {
+        try {
+            checkout scm
+        }
+        catch() {
+            retryCount--
+            echo "Checkout scm failed... Retrying"
+        }
+}
