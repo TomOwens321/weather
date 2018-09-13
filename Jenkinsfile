@@ -16,8 +16,9 @@ def checkoutWithRetries(retryCount) {
     while (retryCount>0) {
         try {
             checkout scm
+            retryCount = 0
         }
-        catch {
+        catch (all) {
             retryCount--
             echo "Checkout scm failed... Retrying"
         }
