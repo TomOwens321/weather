@@ -21,9 +21,10 @@ def checkoutWithRetries(retryCount) {
             checkout scm
             retryCount = 0
         }
-        catch (all) {
+        catch (Exception e) {
             retryCount--
-            echo "Checkout scm failed... Retrying"
+            msg = e.getMessage()
+            echo "Checkout scm failed due to ${msg}.  Retrying"
         }
     }
 }
