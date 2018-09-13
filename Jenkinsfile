@@ -1,6 +1,6 @@
 node ('jslave') {
     stage ('Checkout') {
-        checkoutWithRetries(2) 
+        checkoutWithRetries(3) 
     }
 
     stage ('Build') {
@@ -15,6 +15,9 @@ node ('jslave') {
 def checkoutWithRetries(retryCount) {
     while (retryCount>0) {
         try {
+            if (retryCount == 3) {
+                throw new Exception('Weeeee')
+            }
             checkout scm
             retryCount = 0
         }
