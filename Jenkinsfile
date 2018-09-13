@@ -17,7 +17,7 @@ def checkoutWithRetries(retryCount) {
         try {
             checkout scm
         }
-        catch() {
+        catch {
             retryCount--
             echo "Checkout scm failed... Retrying"
         }
