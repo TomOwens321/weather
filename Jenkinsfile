@@ -22,4 +22,5 @@ def checkoutWithRetries(retryCount) {
             retryCount--
             echo "Checkout scm failed... Retrying"
         }
+    }
 }
