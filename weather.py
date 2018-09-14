@@ -7,7 +7,7 @@ def run():
     bbw.setup()
     while (1):
         dir = bbw.direction_text(bbw.read())
-        print("Current Wind Direction: {}").format(dir)
+        print("Current Wind Direction: %s" % dir)
         sleep(5)
 
 if __name__ == '__main__':
