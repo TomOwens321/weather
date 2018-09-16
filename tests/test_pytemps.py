@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sys
 import unittest
 from unittest.mock import MagicMock, patch
