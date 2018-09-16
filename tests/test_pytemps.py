@@ -16,7 +16,7 @@ class TestPytemps(unittest.TestCase):
     @patch('pytemps.pytemps.mqtt_publish')
     def test_log_message(self, mqtt_publish):
         pytemps.log_message('Message')
-        pytemps.mqtt_publish.assert_called_once()
+        pytemps.mqtt_publish.assert_called_once_with(unittest.mock.ANY, unittest.mock.ANY)
 
     def test_the_truth(self):
         self.assertTrue(True)
