@@ -12,13 +12,13 @@ node ('jslave') {
     }
 }
 
-busy = true
-
 def checkoutWithRetries(retryCount) {
-    while (busy) {
-        echo 'I am busy'
-        sleep(2)
-        busy = false
+    if (binding.hasVariable('busy') {
+        echo 'busy found and is ${busy}'
+        busy = true
+    } else {
+        def busy = true
+        echo 'created busy'
     }
     while (retryCount>0) {
         try {
@@ -34,4 +34,5 @@ def checkoutWithRetries(retryCount) {
             echo "Checkout scm failed due to ${msg}.  Retrying"
         }
     }
+    busy = false
 }
