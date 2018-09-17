@@ -13,7 +13,7 @@ node ('jslave') {
     }
 }
 
-def checkoutWithRetries(retryCount) {
+def checkoutWithRetries(retryCount, busy = true) {
     while (busy) {
         echo 'I am busy'
         sleep(2)
