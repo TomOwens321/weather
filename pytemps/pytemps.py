@@ -48,6 +48,7 @@ def loop():
     except:
         print("owhost connection failure.")
 
-while True:
-  loop()
-  time.sleep(60)
+if __name__ == '__main__':
+  while True:
+    loop()
+    time.sleep(60)
