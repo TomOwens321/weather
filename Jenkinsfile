@@ -1,5 +1,6 @@
 node ('jslave') {
     stage ('Checkout') {
+        def busy = true
         checkoutWithRetries(3) 
     }
 
@@ -8,19 +9,17 @@ node ('jslave') {
     }
 
     stage ('Test') {
-        def BUSY = false
         sh 'scripts/run_tests.sh'
     }
 }
 
-
-
 def checkoutWithRetries(retryCount) {
-    if (BUSY) {
+    while (busy) {
         echo 'I am busy'
+        sleep(2)
+        busy = false
     }
     while (retryCount>0) {
-        BUSY = true
         try {
             if (retryCount == 3) {
                 throw new Exception('Weeeee')
@@ -33,6 +32,5 @@ def checkoutWithRetries(retryCount) {
             msg = e.getMessage()
             echo "Checkout scm failed due to ${msg}.  Retrying"
         }
-        BUSY = false
     }
 }
