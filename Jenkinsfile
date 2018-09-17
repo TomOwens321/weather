@@ -12,11 +12,14 @@ node ('jslave') {
     }
 }
 
+BUSY = false
+
 def checkoutWithRetries(retryCount) {
     if (BUSY) {
         echo 'I am busy'
     }
     while (retryCount>0) {
+        BUSY = true
         try {
             if (retryCount == 3) {
                 throw new Exception('Weeeee')
@@ -29,5 +32,6 @@ def checkoutWithRetries(retryCount) {
             msg = e.getMessage()
             echo "Checkout scm failed due to ${msg}.  Retrying"
         }
+        BUSY = false
     }
 }
