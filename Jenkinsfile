@@ -12,7 +12,7 @@ node ('jslave') {
     }
 }
 
-BUSY = false
+def BUSY = false
 
 def checkoutWithRetries(retryCount) {
     if (BUSY) {
