@@ -1,6 +1,5 @@
 node ('jslave') {
     stage ('Checkout') {
-        def busy = true
         checkoutWithRetries(3) 
     }
 
@@ -13,7 +12,9 @@ node ('jslave') {
     }
 }
 
-def checkoutWithRetries(retryCount, busy = true) {
+busy = true
+
+def checkoutWithRetries(retryCount) {
     while (busy) {
         echo 'I am busy'
         sleep(2)
