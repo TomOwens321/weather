@@ -14,7 +14,7 @@ node ('jslave') {
 
 def checkoutWithRetries(retryCount) {
     if (binding.hasVariable('busy') {
-        echo 'busy found and is ${busy}'
+        echo 'busy found '
         busy = true
     } else {
         def busy = true
