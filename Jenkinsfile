@@ -13,6 +13,9 @@ node ('jslave') {
 }
 
 def checkoutWithRetries(retryCount) {
+    if (BUSY) {
+        echo 'I am busy'
+    }
     while (retryCount>0) {
         try {
             if (retryCount == 3) {
