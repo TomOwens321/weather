@@ -8,11 +8,12 @@ node ('jslave') {
     }
 
     stage ('Test') {
+        def BUSY = false
         sh 'scripts/run_tests.sh'
     }
 }
 
-def BUSY = false
+
 
 def checkoutWithRetries(retryCount) {
     if (BUSY) {
