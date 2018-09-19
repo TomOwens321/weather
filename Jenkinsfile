@@ -39,5 +39,5 @@ def checkoutWithRetries(retryCount) {
 }
 
 def vars() {
-    echo `env`
+    sh 'env'
 }
