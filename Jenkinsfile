@@ -5,6 +5,7 @@ node ('jslave') {
 
     stage ('Build') {
         sh 'echo "No build necessary"'
+        vars()
     }
 
     stage ('Test') {
@@ -35,4 +36,8 @@ def checkoutWithRetries(retryCount) {
         }
     }
     busy = false
+}
+
+def vars() {
+    echo `env`
 }
