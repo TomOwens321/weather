@@ -1,4 +1,4 @@
-@Library('sharedlibs')
+@Library('sharedlibs') _
 
 node ('jslave') {
     stage ('Checkout') {
