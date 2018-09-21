@@ -6,7 +6,8 @@ node ('jslave') {
     }
 
     stage ('Build') {
-        sh 'echo "No build necessary"'
+        sh 'echo "Lets try out a shared function call."'
+        sayHello('Tom you wonderful guy')
         vars()
     }
 
