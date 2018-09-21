@@ -1,3 +1,5 @@
+@Library('sharedlibs')
+
 node ('jslave') {
     stage ('Checkout') {
         checkoutWithRetries(3) 
