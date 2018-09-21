@@ -7,7 +7,7 @@ node ('jslave') {
 
     stage ('Build') {
         sh 'echo "Lets try out a shared function call."'
-        sayHello('Tom you wonderful guy')
+        sayHello('Tom')
         vars()
     }
 
@@ -16,7 +16,7 @@ node ('jslave') {
     }
 }
 
-def checkoutWithRetries(retryCount) {
+def _checkoutWithRetries(retryCount) {
     if (binding.hasVariable('busy')) {
         echo 'busy found '
         busy = true
