@@ -1,8 +1,10 @@
 @Library('sharedlibs') _
 
+def retryCount = 3
+
 node ('jslave') {
     stage ('Checkout') {
-        checkoutWithRetries(3) 
+        checkoutWithRetries(retryCount) 
     }
 
     stage ('Build') {
