@@ -1,6 +1,6 @@
 library identifier: 'sharedlibs@master', retriever: modernSCM(
     [$class: 'GitSCMSource',
-     remote: 'git@github.com:TomOwens321/sharedlibs',
+     remote: 'git@github.com:TomOwens321/sharedlibs.git',
      credentialsId: 'me_at_github']
 )
 
