@@ -1,7 +1,6 @@
 library identifier: 'sharedlibs@master', retriever: modernSCM(
     [$class: 'GitSCMSource',
-     remote: 'git@github.com:TomOwens321/sharedlibs.git',
-     credentialsId: 'me_at_github']
+     remote: 'https://TomOwens321:Yomama@github.com/TomOwens321/sharedlibs.git']
 )
 
 def retryCount = 3
