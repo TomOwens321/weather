@@ -9,17 +9,23 @@ pipeline {
     agent { node 'jslave' } 
     stages {
         stage ('Checkout') {
-            checkoutWithRetries(retryCount) 
+            steps {
+                checkoutWithRetries(retryCount) 
+            }
         }
 
         stage ('Build') {
-            sh 'echo "Lets try out a shared function call."'
-            sayHello('Tom')
-            vars()
+            steps {
+                sh 'echo "Lets try out a shared function call."'
+                sayHello('Tom')
+                vars()
+             }
         }
 
         stage ('Test') {
-            sh 'scripts/run_tests.sh'
+            steps { 
+                sh 'scripts/run_tests.sh'
+            }
         }
     }
 }
