@@ -5,19 +5,22 @@ library identifier: 'sharedlibs@master', retriever: modernSCM(
 
 def retryCount = 3
 
-node ('jslave') {
-    stage ('Checkout') {
-        checkoutWithRetries(retryCount) 
-    }
+pipeline {
+    agent { node 'jslave' } 
+    stages {
+        stage ('Checkout') {
+            checkoutWithRetries(retryCount) 
+        }
 
-    stage ('Build') {
-        sh 'echo "Lets try out a shared function call."'
-        sayHello('Tom')
-        vars()
-    }
+        stage ('Build') {
+            sh 'echo "Lets try out a shared function call."'
+            sayHello('Tom')
+            vars()
+        }
 
-    stage ('Test') {
-        sh 'scripts/run_tests.sh'
+        stage ('Test') {
+            sh 'scripts/run_tests.sh'
+        }
     }
 }
 
