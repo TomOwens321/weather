@@ -1,4 +1,4 @@
-node ('kjenk') {
+node ('jslave') {
     stage ('Checkout') {
         checkout scm
     }
