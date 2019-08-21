@@ -1,19 +1,4 @@
-podTemplate(yaml: """
-apiVersion: v1
-kind: Pod
-metadata:
-  labels:
-    app: python
-spec:
-  containers:
-  - name: python
-    image: python
-    command:
-    - cat
-    tty: true
-"""
-)
-node ('POD_LABEL') {
+node ('jslave') {
     stage ('Checkout') {
         checkout scm
     }
